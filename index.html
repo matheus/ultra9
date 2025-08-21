@@ -3,191 +3,287 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oferta Imperdível: Relógio Digital Ultra9</title>
+    <title>Ultra9 - O Relógio Esportivo Definitivo</title>
     
-    <!-- Tailwind CSS para estilização rápida e responsiva -->
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts para uma tipografia moderna -->
+    <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
     
-    <!-- Ícones (Feather Icons) -->
+    <!-- Feather Icons -->
     <script src="https://unpkg.com/feather-icons"></script>
 
     <style>
-        /* Estilos personalizados e configuração do Tailwind */
+        /* Estilos personalizados e animações */
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
         }
-        .hero-bg {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://down-br.img.susercontent.com/file/br-11134207-7r98o-lr7g97iv1tt0f4.webp') no-repeat center center;
-            background-size: cover;
+
+        /* Animação de fade-in para elementos */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
-        .cta-button {
-            transition: all 0.3s ease;
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        
+        /* Efeito de brilho no botão CTA */
+        .cta-button::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 5px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            transform: scale(1) translate(-50%, -50%);
+            opacity: 0;
+            animation: ripple 1.5s infinite;
+        }
+
+        @keyframes ripple {
+            0% {
+                transform: scale(0) translate(-50%, -50%);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(15) translate(-50%, -50%);
+                opacity: 0;
+            }
         }
     </style>
 </head>
-<body class="bg-gray-900 text-white">
+<body class="bg-gray-50 text-gray-800">
 
-    <!-- Cabeçalho -->
-    <header class="bg-gray-900/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-50">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <h1 class="text-2xl font-bold text-white">Ultra9</h1>
-            <a href="#comprar" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-lg cta-button">Comprar Agora</a>
+    <!-- ===== SEÇÃO HERO ===== -->
+    <header id="hero" class="bg-white">
+        <div class="container mx-auto px-6 py-12 md:py-20">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-12">
+                <!-- Coluna de Texto -->
+                <div class="md:w-1/2 text-center md:text-left">
+                    <h1 class="text-4xl md:text-6xl font-black text-gray-900 leading-tight mb-4 reveal">
+                        Relógio Digital <span class="text-blue-600">Ultra9</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-600 mb-8 reveal" style="transition-delay: 200ms;">
+                        O companheiro perfeito para seu dia a dia. Estilo, resistência e tecnologia no seu pulso.
+                    </p>
+                    <div class="flex justify-center md:justify-start gap-4 reveal" style="transition-delay: 400ms;">
+                        <a href="#cta" class="bg-blue-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-blue-700 transition-transform transform hover:scale-105 cta-button relative overflow-hidden">
+                            Comprar Agora
+                        </a>
+                    </div>
+                    <div class="mt-8 flex items-center justify-center md:justify-start gap-4 text-gray-500 reveal" style="transition-delay: 600ms;">
+                        <div class="flex items-center gap-1">
+                            <i data-feather="star" class="w-5 h-5 text-yellow-500 fill-current"></i>
+                            <i data-feather="star" class="w-5 h-5 text-yellow-500 fill-current"></i>
+                            <i data-feather="star" class="w-5 h-5 text-yellow-500 fill-current"></i>
+                            <i data-feather="star" class="w-5 h-5 text-yellow-500 fill-current"></i>
+                            <i data-feather="star" class="w-5 h-5 text-yellow-400 fill-current"></i>
+                        </div>
+                        <span>+21 mil avaliações</span>
+                    </div>
+                </div>
+                <!-- Coluna da Imagem -->
+                <div class="md:w-1/2 reveal" style="transition-delay: 100ms;">
+                    <img src="https://down-br.img.susercontent.com/file/br-11134207-7r98o-lr7g6pzaeed783.webp" alt="Relógio Ultra9 Esportivo" class="w-full h-auto rounded-lg shadow-2xl transform hover:scale-105 transition-transform duration-500">
+                </div>
+            </div>
         </div>
     </header>
 
-    <!-- Seção Principal (Hero) -->
-    <main class="pt-16">
-        <section class="hero-bg text-center py-20 md:py-32">
+    <main>
+        <!-- ===== SEÇÃO CARACTERÍSTICAS ===== -->
+        <section id="features" class="py-16 md:py-24 bg-white">
             <div class="container mx-auto px-6">
-                <h2 class="text-4xl md:text-6xl font-bold mb-4 leading-tight">Relógio Digital Ultra9</h2>
-                <p class="text-lg md:text-2xl mb-8 text-gray-300">Seu parceiro para todas as aventuras. Estilo, esporte e tecnologia no seu pulso.</p>
-                <div class="flex items-center justify-center mb-8">
-                    <span class="text-5xl font-bold text-orange-400 mr-4">R$13,98</span>
-                    <span class="text-2xl text-gray-400 line-through">R$49,00</span>
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 reveal">Tecnologia e Resistência</h2>
+                    <p class="text-gray-600 mt-2 reveal" style="transition-delay: 150ms;">Tudo que você precisa em um design moderno e robusto.</p>
                 </div>
-                <a href="#comprar" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-full text-lg cta-button">
-                    Aproveitar Oferta (-71% OFF)
-                </a>
+                <div class="flex flex-col md:flex-row items-center gap-10">
+                    <div class="md:w-1/2 reveal">
+                        <img src="https://down-br.img.susercontent.com/file/br-11134207-7r98o-lr7g6pza8s3f30.webp" alt="Características do Relógio Ultra9" class="rounded-lg shadow-xl w-full">
+                    </div>
+                    <div class="md:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-8">
+                        <div class="flex items-start gap-4 reveal" style="transition-delay: 200ms;">
+                            <div class="bg-blue-100 text-blue-600 p-3 rounded-full">
+                                <i data-feather="droplet" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg">À Prova D'água 50m</h3>
+                                <p class="text-gray-600">Perfeito para natação e atividades aquáticas. Mergulhe sem preocupações.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 reveal" style="transition-delay: 300ms;">
+                            <div class="bg-blue-100 text-blue-600 p-3 rounded-full">
+                                <i data-feather="sun" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg">Display Luminoso</h3>
+                                <p class="text-gray-600">Visibilidade clara em qualquer condição de luz, dia ou noite.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 reveal" style="transition-delay: 400ms;">
+                            <div class="bg-blue-100 text-blue-600 p-3 rounded-full">
+                                <i data-feather="calendar" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg">Calendário Completo</h3>
+                                <p class="text-gray-600">Mantenha-se organizado com data, mês e indicação de 24 horas.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 reveal" style="transition-delay: 500ms;">
+                            <div class="bg-blue-100 text-blue-600 p-3 rounded-full">
+                                <i data-feather="watch" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg">Material Confortável</h3>
+                                <p class="text-gray-600">Pulseira de borracha natural e caixa em ABS para máximo conforto e durabilidade.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- Seção do Produto -->
-        <section id="produto" class="py-16 md:py-24 bg-gray-800">
+        <!-- ===== SEÇÃO DEPOIMENTOS ===== -->
+        <section id="testimonials" class="py-16 md:py-24 bg-gray-50">
             <div class="container mx-auto px-6">
-                <div class="flex flex-col md:flex-row gap-12 items-center">
-                    <!-- Imagem Principal -->
-                    <div class="md:w-1/2">
-                        <img id="main-watch-image" src="https://down-br.img.susercontent.com/file/br-11134207-7r98o-lr7g6pza5yyj3c.webp" alt="Relógio Ultra9" class="rounded-lg shadow-2xl w-full max-w-md mx-auto">
-                    </div>
-                    <!-- Detalhes -->
-                    <div class="md:w-1/2 text-center md:text-left">
-                        <h3 class="text-3xl font-bold mb-4">Design Moderno e Versátil</h3>
-                        <p class="text-gray-400 mb-8">O Ultra9 combina com qualquer estilo, do casual ao esportivo. Um visual arrojado que se destaca no seu pulso.</p>
-                        
-                        <a href="#comprar" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-full text-lg cta-button inline-block">
-                            Eu Quero o Meu!
-                        </a>
-                    </div>
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 reveal">O que nossos clientes dizem</h2>
+                    <p class="text-gray-600 mt-2 reveal" style="transition-delay: 150ms;">Mais de 40 mil unidades vendidas e a satisfação é garantida.</p>
                 </div>
-            </div>
-        </section>
-
-        <!-- Seção de Características -->
-        <section id="features" class="py-16 md:py-24">
-            <div class="container mx-auto px-6 text-center">
-                <h3 class="text-3xl font-bold mb-2">Tecnologia e Resistência</h3>
-                <p class="text-gray-400 mb-12 max-w-2xl mx-auto">Projetado para o dia a dia e para os seus treinos, o Ultra9 tem tudo o que você precisa.</p>
-                
-                <!-- NOVA IMAGEM ADICIONADA AQUI -->
-                <div class="mb-16">
-                    <img src="https://down-br.img.susercontent.com/file/br-11134207-7r98o-lr7g6pzaeed783.webp" alt="Três relógios Ultra9 entrelaçados" class="rounded-lg shadow-2xl w-full max-w-3xl mx-auto">
-                </div>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <!-- Característica 1 -->
-                    <div class="bg-gray-800 p-8 rounded-lg">
-                        <i data-feather="droplet" class="w-12 h-12 text-orange-400 mx-auto mb-4"></i>
-                        <h4 class="text-xl font-semibold mb-2">À Prova d'Água 50m</h4>
-                        <p class="text-gray-400">Nade, corra na chuva ou lave as mãos sem preocupação.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Depoimento 1 -->
+                    <div class="bg-white p-8 rounded-lg shadow-lg reveal">
+                        <div class="flex items-center mb-4">
+                            <img src="https://placehold.co/50x50/E2E8F0/4A5568?text=JP" alt="Avatar cliente" class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <p class="font-bold">João Pedro S.</p>
+                                <p class="text-sm text-gray-500">Compra Verificada</p>
+                            </div>
+                        </div>
+                        <div class="flex text-yellow-500 mb-4">
+                            <i data-feather="star" class="w-5 h-5 fill-current"></i><i data-feather="star" class="w-5 h-5 fill-current"></i><i data-feather="star" class="w-5 h-5 fill-current"></i><i data-feather="star" class="w-5 h-5 fill-current"></i><i data-feather="star" class="w-5 h-5 fill-current"></i>
+                        </div>
+                        <p class="text-gray-600">"Relógio excelente! Leve, bonito e muito funcional. Uso na academia e na natação, funciona perfeitamente. Recomendo demais!"</p>
                     </div>
-                    <!-- Característica 2 -->
-                    <div class="bg-gray-800 p-8 rounded-lg">
-                        <i data-feather="sun" class="w-12 h-12 text-orange-400 mx-auto mb-4"></i>
-                        <h4 class="text-xl font-semibold mb-2">Display Luminoso</h4>
-                        <p class="text-gray-400">Veja as horas com clareza em qualquer ambiente, dia ou noite.</p>
+                    <!-- Depoimento 2 -->
+                    <div class="bg-white p-8 rounded-lg shadow-lg reveal" style="transition-delay: 200ms;">
+                        <div class="flex items-center mb-4">
+                            <img src="https://placehold.co/50x50/E2E8F0/4A5568?text=MC" alt="Avatar cliente" class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <p class="font-bold">Mariana Costa</p>
+                                <p class="text-sm text-gray-500">Compra Verificada</p>
+                            </div>
+                        </div>
+                        <div class="flex text-yellow-500 mb-4">
+                           <i data-feather="star" class="w-5 h-5 fill-current"></i><i data-feather="star" class="w-5 h-5 fill-current"></i><i data-feather="star" class="w-5 h-5 fill-current"></i><i data-feather="star" class="w-5 h-5 fill-current"></i><i data-feather="star" class="w-5 h-5 text-gray-300"></i>
+                        </div>
+                        <p class="text-gray-600">"Adorei o design, é super estiloso. A tela é bem grande e fácil de ler. Ótimo custo-benefício. A entrega foi super rápida aqui em SP."</p>
                     </div>
-                    <!-- Característica 3 -->
-                    <div class="bg-gray-800 p-8 rounded-lg">
-                        <i data-feather="calendar" class="w-12 h-12 text-orange-400 mx-auto mb-4"></i>
-                        <h4 class="text-xl font-semibold mb-2">Funções Completas</h4>
-                        <p class="text-gray-400">Calendário, exibição de mês e formato 24 horas.</p>
-                    </div>
-                    <!-- Característica 4 -->
-                    <div class="bg-gray-800 p-8 rounded-lg">
-                        <i data-feather="watch" class="w-12 h-12 text-orange-400 mx-auto mb-4"></i>
-                        <h4 class="text-xl font-semibold mb-2">Design Moderno</h4>
-                        <p class="text-gray-400">Leve, confortável e com um estilo que se destaca.</p>
+                    <!-- Depoimento 3 -->
+                    <div class="bg-white p-8 rounded-lg shadow-lg reveal" style="transition-delay: 400ms;">
+                        <div class="flex items-center mb-4">
+                            <img src="https://placehold.co/50x50/E2E8F0/4A5568?text=RF" alt="Avatar cliente" class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <p class="font-bold">Ricardo Farias</p>
+                                <p class="text-sm text-gray-500">Compra Verificada</p>
+                            </div>
+                        </div>
+                        <div class="flex text-yellow-500 mb-4">
+                            <i data-feather="star" class="w-5 h-5 fill-current"></i><i data-feather="star" class="w-5 h-5 fill-current"></i><i data-feather="star" class="w-5 h-5 fill-current"></i><i data-feather="star" class="w-5 h-5 fill-current"></i><i data-feather="star" class="w-5 h-5 fill-current"></i>
+                        </div>
+                        <p class="text-gray-600">"Comprei para o meu filho e ele não tira mais do pulso. É resistente, aguenta a rotina dele. A função luminosa é ótima à noite."</p>
                     </div>
                 </div>
             </div>
         </section>
         
-        <!-- Seção de Especificações -->
-        <section class="py-16 md:py-24 bg-gray-800">
+        <!-- ===== SEÇÃO GALERIA ===== -->
+        <section id="gallery" class="py-16 md:py-24 bg-white">
             <div class="container mx-auto px-6">
-                <h3 class="text-3xl font-bold text-center mb-10">Detalhes Técnicos</h3>
-                <div class="max-w-2xl mx-auto bg-gray-900 rounded-lg p-8 shadow-lg">
-                    <ul class="space-y-4 text-gray-300">
-                        <li class="flex justify-between border-b border-gray-700 pb-2"><span>Diâmetro da Caixa:</span> <span class="font-semibold">43.5mm</span></li>
-                        <li class="flex justify-between border-b border-gray-700 pb-2"><span>Espessura:</span> <span class="font-semibold">15mm</span></li>
-                        <li class="flex justify-between border-b border-gray-700 pb-2"><span>Largura da Pulseira:</span> <span class="font-semibold">23mm</span></li>
-                        <li class="flex justify-between border-b border-gray-700 pb-2"><span>Peso:</span> <span class="font-semibold">38g (Super leve)</span></li>
-                        <li class="flex justify-between border-b border-gray-700 pb-2"><span>Material da Pulseira:</span> <span class="font-semibold">Borracha Natural</span></li>
-                        <li class="flex justify-between border-b border-gray-700 pb-2"><span>Material da Caixa:</span> <span class="font-semibold">ABS de Alta Qualidade</span></li>
-                        <li class="flex justify-between"><span>Movimento:</span> <span class="font-semibold">Eletrônico Digital</span></li>
-                    </ul>
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 reveal">Estilo que combina com você</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="reveal">
+                        <img src="https://down-br.img.susercontent.com/file/br-11134207-7r98o-lr7g6pzafsxneb.webp" alt="Relógio Ultra9 no pulso" class="rounded-lg shadow-xl w-full h-auto object-cover">
+                    </div>
+                    <div class="reveal" style="transition-delay: 200ms;">
+                        <img src="https://down-br.img.susercontent.com/file/br-11134207-7r98o-lr7g97iv1tt0f4.webp" alt="Detalhe do Relógio Ultra9" class="rounded-lg shadow-xl w-full h-auto object-cover">
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Seção de CTA Final -->
-        <section id="comprar" class="py-16 md:py-24 text-center bg-gray-900">
-            <div class="container mx-auto px-6">
-                <h3 class="text-3xl md:text-4xl font-bold mb-4">Não Perca Essa Chance!</h3>
-                <p class="text-gray-400 mb-8 max-w-2xl mx-auto">Estoque limitado! Garanta seu Relógio Ultra9 com 71% de desconto. A promoção termina em breve.</p>
-                <div class="flex items-center justify-center mb-8">
-                    <span class="text-5xl font-bold text-orange-400 mr-4">R$13,98</span>
-                    <span class="text-2xl text-gray-400 line-through">R$49,00</span>
+        <!-- ===== SEÇÃO CTA (CALL TO ACTION) ===== -->
+        <section id="cta" class="bg-gray-800 text-white">
+            <div class="container mx-auto px-6 py-16 md:py-24">
+                <div class="bg-blue-600 p-8 md:p-12 rounded-2xl shadow-2xl text-center reveal">
+                    <h2 class="text-3xl md:text-5xl font-black mb-4">OFERTA IMPERDÍVEL!</h2>
+                    <p class="text-blue-100 text-lg mb-6">Não perca a chance de ter o seu Ultra9 com um desconto exclusivo.</p>
+                    
+                    <div class="flex items-center justify-center gap-4 mb-8">
+                        <span class="text-2xl md:text-3xl text-gray-300 line-through">R$49,00</span>
+                        <span class="text-4xl md:text-6xl font-bold text-white">R$13,98</span>
+                        <span class="bg-yellow-400 text-yellow-900 text-sm font-bold px-3 py-1 rounded-full">-71% OFF</span>
+                    </div>
+
+                    <a href="#" class="bg-white text-blue-600 font-bold py-4 px-10 rounded-lg shadow-lg text-lg hover:bg-gray-200 transition-transform transform hover:scale-105 cta-button relative overflow-hidden">
+                        EU QUERO O MEU AGORA!
+                    </a>
+
+                    <div class="mt-8 text-blue-100">
+                        <p class="font-semibold">⚠️ Atenção: Oferta válida enquanto durarem os estoques!</p>
+                        <div class="w-full bg-gray-700 rounded-full h-4 mt-3">
+                            <div class="bg-red-500 h-4 rounded-full" style="width: 25%"></div>
+                        </div>
+                        <p class="text-sm mt-1">Apenas 25% do estoque promocional restante!</p>
+                    </div>
                 </div>
-                <button onclick="showMessage()" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-10 rounded-full text-xl cta-button">
-                    Comprar Agora e Receber em Casa
-                </button>
-                <p class="text-sm text-gray-500 mt-4">Compra segura e envio para todo o Brasil.</p>
             </div>
         </section>
     </main>
 
-    <!-- Rodapé -->
-    <footer class="bg-gray-800 py-8">
-        <div class="container mx-auto px-6 text-center text-gray-500">
-            <p>&copy; 2024 Ultra9. Todos os direitos reservados.</p>
-            <p class="text-sm">Uma página de vendas criada para demonstração.</p>
+    <!-- ===== RODAPÉ ===== -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2024 Ultra9 Relógios. Todos os direitos reservados.</p>
+            <p class="text-sm text-gray-400 mt-2">Enviamos de São Paulo para todo o Brasil.</p>
         </div>
     </footer>
-    
-    <!-- Modal de Mensagem -->
-    <div id="message-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
-        <div class="bg-gray-800 text-white p-8 rounded-lg shadow-xl text-center">
-            <h4 class="text-2xl font-bold mb-4">Obrigado!</h4>
-            <p class="mb-6">Seu produto foi adicionado ao carrinho com sucesso!</p>
-            <button onclick="closeMessage()" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-6 rounded-lg">Fechar</button>
-        </div>
-    </div>
 
     <script>
-        // Ativa os ícones Feather
+        // Ativa os ícones do Feather Icons
         feather.replace();
-        
-        // Funções para mostrar e esconder o modal de mensagem
-        const messageModal = document.getElementById('message-modal');
 
-        function showMessage() {
-            messageModal.classList.remove('hidden');
-        }
+        // Lógica para animação de scroll
+        const revealElements = document.querySelectorAll('.reveal');
 
-        function closeMessage() {
-            messageModal.classList.add('hidden');
-        }
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // Opcional: parar de observar depois que o elemento for visível
+                    // observer.unobserve(entry.target); 
+                }
+            });
+        }, {
+            threshold: 0.1 // Ativa quando 10% do elemento está visível
+        });
+
+        revealElements.forEach(el => {
+            observer.observe(el);
+        });
     </script>
-
 </body>
 </html>
