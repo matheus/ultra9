@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obrigado pela sua Compra! - Ultra9</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <style>
+        /* Estilos personalizados e animações */
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        /* Animação de fade-in para elementos */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 flex flex-col min-h-screen">
+
+    <!-- ===== SEÇÃO PRINCIPAL ===== -->
+    <main class="flex-grow flex items-center justify-center py-12 px-6">
+        <div class="max-w-2xl w-full bg-white p-8 md:p-12 rounded-2xl shadow-2xl text-center">
+            
+            <!-- Ícone de Sucesso -->
+            <div class="mx-auto bg-green-100 rounded-full h-20 w-20 flex items-center justify-center reveal">
+                <i data-feather="check" class="text-green-600 h-12 w-12"></i>
+            </div>
+
+            <!-- Título -->
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mt-6 reveal" style="transition-delay: 100ms;">
+                Obrigado pela sua compra!
+            </h1>
+
+            <!-- Mensagem de Confirmação -->
+            <p class="text-gray-600 mt-3 reveal" style="transition-delay: 200ms;">
+                Seu pedido foi recebido com sucesso. Em breve, você receberá um e-mail com todos os detalhes da sua compra e informações de rastreamento.
+            </p>
+
+            <!-- Divisor -->
+            <hr class="my-8 reveal" style="transition-delay: 300ms;">
+
+            <!-- Detalhes do Produto -->
+            <div class="text-left reveal" style="transition-delay: 400ms;">
+                <h2 class="font-semibold text-lg mb-4">Resumo do seu pedido:</h2>
+                <div class="flex items-center justify-between bg-gray-50 p-4 rounded-lg">
+                    <div class="flex items-center gap-4">
+                        <img src="https://down-br.img.susercontent.com/file/br-11134207-7r98o-lr7g6pzaeed783.webp" alt="Relógio Ultra9" class="w-16 h-16 rounded-lg object-cover">
+                        <div>
+                            <p class="font-semibold text-gray-800">Relógio Digital Ultra9</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Próximos Passos -->
+            <div class="text-left mt-8 reveal" style="transition-delay: 500ms;">
+                 <h3 class="font-semibold text-lg mb-3">O que acontece agora?</h3>
+                 <ul class="space-y-2 text-gray-600">
+                     <li class="flex items-start gap-3">
+                         <i data-feather="package" class="w-5 h-5 text-blue-500 mt-1 flex-shrink-0"></i>
+                         <span><strong>Preparação para Envio:</strong> Já estamos preparando seu relógio para o envio, que ocorrerá em até 2 dias úteis.</span>
+                     </li>
+                     <li class="flex items-start gap-3">
+                         <i data-feather="truck" class="w-5 h-5 text-blue-500 mt-1 flex-shrink-0"></i>
+                         <span><strong>Código de Rastreio:</strong> Assim que for postado, enviaremos o código de rastreio para você acompanhar a entrega.</span>
+                     </li>
+                 </ul>
+            </div>
+        </div>
+    </main>
+
+    <!-- ===== RODAPÉ ===== -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2024 Ultra9 Relógios. Todos os direitos reservados.</p>
+            <p class="text-sm text-gray-400 mt-2">Qualquer dúvida, entre em contato com nosso suporte.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Ativa os ícones do Feather Icons
+        feather.replace();
+
+        // Lógica para animação de scroll (ou de entrada, neste caso)
+        // Usamos um timeout para garantir que os elementos apareçam após o carregamento da página
+        document.addEventListener('DOMContentLoaded', () => {
+            const revealElements = document.querySelectorAll('.reveal');
+            revealElements.forEach((el, index) => {
+                setTimeout(() => {
+                    el.classList.add('visible');
+                }, index * 50); // Adiciona um pequeno delay escalonado
+            });
+        });
+    </script>
+</body>
+</html>
